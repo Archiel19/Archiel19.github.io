@@ -120,7 +120,7 @@
     "datePublished": "2025-09-15",
     "publisher": {
       "@type": "Organization",
-      "name": "Document Analysis and Recognition – ICDAR 2025"
+      "name": "International Conference on Document Analysis and Recognition – ICDAR 2025"
     },
     "url": "https://Archiel19.github.io/frax4",
     "image": "https://Archiel19.github.io/frax4/static/images/fift_france.png",
@@ -190,18 +190,24 @@
             <div class="is-size-5 publication-authors">
               <!-- Replace with your paper authors and their personal links -->
               <span class="author-block">
-                Marta López-Rauhut,</span>
+                Marta López-Rauhut<sup>1,2</sup>,</span>
                 <span class="author-block">
-                  Hongyu Zhou,</span>
+                  Hongyu Zhou<sup>1,3,4</sup>,</span>
                   <span class="author-block">
-                    <a href="https://mathieuaubry.github.io" target="_blank">Mathieu Aubry</a>,</span>
+                    <a href="https://mathieuaubry.github.io" target="_blank">Mathieu Aubry</a><sup>1</sup>,</span>
                   <span class="author-block">
-                    <a href="https://loiclandrieu.com" target="_blank">Loic Landrieu</a></span>
+                    <a href="https://loiclandrieu.com" target="_blank">Loic Landrieu</a><sup>1</sup></span>
+                  </div>
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup> LIGM, ENPC, IP Paris, Univ Gustave Eiffel, CNRS, France<br></span>
+                    <span class="author-block"><sup>2</sup> Université Paris-Saclay, CNRS, LISN, France<br></span>
+                    <span class="author-block"><sup>3</sup> University of Bonn, Germany<br></span>
+                    <span class="author-block"><sup>4</sup> Lamarr Institute, Germany<br></span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
                     <!-- Replace with your institution and conference/journal info -->
-                    <span class="author-block">École Nationale des Ponts et Chaussées<br>Document Analysis and Recognition – ICDAR 2025</span>
+                    <span class="author-block">International Conference on Document Analysis and Recognition – ICDAR 2025 (<b>Oral</b>)</span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -255,7 +261,7 @@
         <div class="content has-text-justified">
           <!-- Replace with your paper abstract -->
           <p>
-            Historical maps offer an invaluable perspective into territory evolution across past centuries--long before satellite or remote sensing technologies existed. Deep learning methods have shown promising results in segmenting historical maps, but publicly available datasets typically focus on a single map type or period, require extensive and costly annotations, and are not suited for nationwide, long-term analyses. In this paper, we introduce a new dataset of historical maps tailored for analyzing large-scale, long-term land use and land cover evolution with limited annotations. Spanning metropolitan France (548,305 km^2), our dataset contains three map collections from the 18th, 19th, and 20th centuries. We provide both comprehensive modern labels and 22,878 km^2 of manually annotated historical labels for the 18th and 19th century maps. Our dataset illustrates the complexity of the segmentation task, featuring stylistic inconsistencies, interpretive ambiguities, and significant landscape changes (e.g., marshlands disappearing in favor of forests). We assess the difficulty of these challenges by benchmarking three approaches: a fully-supervised model trained with historical labels, and two weakly-supervised models that rely only on modern annotations. The latter either use the modern labels directly or first perform image-to-image translation to address the stylistic gap between historical and contemporary maps. Finally, we discuss how these methods can support long-term environment monitoring, offering insights into centuries of landscape transformation.
+            Historical maps offer an invaluable perspective into territory evolution across past centuries&mdash;long before satellite or remote sensing technologies existed. Deep learning methods have shown promising results in segmenting historical maps, but publicly available datasets typically focus on a single map type or period, require extensive and costly annotations, and are not suited for nationwide, long-term analyses. In this paper, we introduce a new dataset of historical maps tailored for analyzing large-scale, long-term land use and land cover evolution with limited annotations. Spanning metropolitan France (548,305 km<sup>2</sup>), our dataset contains three map collections from the 18th, 19th, and 20th centuries. We provide both comprehensive modern labels and 22,878 km<sup>2</sup> of manually annotated historical labels for the 18th and 19th century maps. Our dataset illustrates the complexity of the segmentation task, featuring stylistic inconsistencies, interpretive ambiguities, and significant landscape changes (e.g., marshlands disappearing in favor of forests). We assess the difficulty of these challenges by benchmarking three approaches: a fully-supervised model trained with historical labels, and two weakly-supervised models that rely only on modern annotations. The latter either use the modern labels directly or first perform image-to-image translation to address the stylistic gap between historical and contemporary maps. Finally, we discuss how these methods can support long-term environment monitoring, offering insights into centuries of landscape transformation.
           </p>
         </div>
       </div>
@@ -264,74 +270,135 @@
 </section>
 <!-- End paper abstract -->
 
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Replace with your research result images -->
-        <img src="static/images/teaser.png" alt="Historical map segmentation" loading="lazy"/>
-        <!-- Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          Semantic segmentation of historical maps of France spanning four centuries.
-        </h2>
+<!-- Summary -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-10">
+        <h2 class="title is-3">Summary</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li>By segmenting historical maps, we can track changes in land cover over centuries.</li>
+            <li>Historical map segmentation is hindered by the cost of manual annotation.</li>
+            <li>Modern remote sensing technologies produce abundant present-day land cover labels.</li>
+            <li>We release <b>FRAx4</b>, a new country-scale historical map segmentation dataset spanning four centuries, focused on weakly-supervised learning with present-day labels.</li>
+          </ul>
+        </div>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/baselineA.png" alt="Baseline A" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Baseline A - Fully-supervised segmentation.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/baselineB.png" alt="Baseline B" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Baseline B - Direct weakly-supervised segmentation.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/baselineC.png" alt="Baseline C" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Baseline C - Translation + segmentation.
-      </h2>
-    </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/qualitative_results.png" alt="Qualitative semantic segmentation results" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Qualitative semantic segmentation results.
-      </h2>
-    </div>
-    <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/forest_prediction.png" alt="Forest cover prediction" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Predicted forest cover over France across four centuries.
-      </h2>
     </div>
   </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
+<!-- End summary -->
 
-<!-- Paper poster -->
+
+<section class="section hero is-white">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Historical map segmentation</h2>
+        <div class="content has-text-justified">
+          <p>Semantic segmentation consists in assigning a class label to each pixel of an image.
+            <br>In the case of historical map segmentation, our classes are Land Use and Land Cover (LULC) categories: the type of physical material making up the Earth's surface (hydrography, man-made constructions, forest cover...).
+            <br>By segmenting and comparing historical maps of the same region, we can track LULC evolution over centuries.
+          </p>
+          <img src="static/images/teaser.png" alt="Historical map segmentation" loading="lazy"/>
+        </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Dataset -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-10">
+        <h2 class="title is-3">Dataset - FRAx4</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li>Metropolitan France (548,305 km<sup>2</sup>) from the 18th to the 21st centuries.</li>
+            <li>Three historical map collections: <i>Cassini</i>, <i>État-Major</i>, <i>SCAN50</i>.</li>
+            <li>Four LULC classes: forest, buildings, hydrography and roads.</li>
+            <li>Comprehensive present-day labels plus partial historical labels.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End dataset -->
+
+<!-- Baselines -->
+<section class="section hero is-white">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Segmentation baselines</h2>
+        <div class="content has-text-justified">
+          <p>We introduce three historical map segmentation baselines: one fully-supervised and two-weakly supervised.<br>
+            The weakly-supervised baselines use present-day LULC labels for training, as opposed to manually annotated ground truth labels for the historical maps.
+          </p>
+          <div class="hero-body">
+            <div class="container">
+              <div id="results-carousel" class="carousel results-carousel">
+              <div class="item">
+                <img src="static/images/baselineA.png" alt="Baseline A" loading="lazy"/>
+                <h2 class="subtitle has-text-centered">
+                  Baseline A - Fully-supervised segmentation.
+                </h2>
+              </div>
+              <div class="item">
+                <img src="static/images/baselineB.png" alt="Baseline B" loading="lazy"/>
+                <h2 class="subtitle has-text-centered">
+                 Baseline B - Direct weakly-supervised segmentation.
+               </h2>
+             </div>
+             <div class="item">
+              <img src="static/images/baselineC.png" alt="Baseline C" loading="lazy"/>
+              <h2 class="subtitle has-text-centered">
+                Baseline C - Translation + segmentation.
+              </h2>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section hero is-white">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <h3>Qualitative segmentation results</h3>
+          <img src="static/images/qualitative_results.png" alt="Qualitative semantic segmentation results" loading="lazy"/>
+        </div>
+        <div class="content has-text-justified">
+          <h3>Long-term forest monitoring</h3>
+          <p>As an application study, we use our baselines to predict forest cover density over France between the 18th and 21st centuries.</p>
+          <img src="static/images/forest_prediction.png" alt="Forest cover prediction" loading="lazy"/>
+        </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Oral presenstation -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Slides</h2>
       <!-- Replace with your poster PDF -->
-      <iframe  src="static/pdfs/ICDAR 2025_FRAx4.pdf" width="100%" height="550">
+      <iframe  src="static/pdfs/ICDAR 2025_FRAx4.pdf" width="100%" height="650">
           </iframe>
       </div>
     </div>
   </section>
-<!--End paper poster -->
-
+<!--End oral presentation -->
 
 
 <!--BibTex citation -->
@@ -364,8 +431,7 @@
         <h2 class="title is-3">Acknowledgments</h2>
         <div class="content has-text-justified">
           <p>
-            This work was supported by the European Research Council (ERC project DISCOVER, number 101076028) and by ANR project sharp ANR-23-PEIA-0008 in the context of the PEPR IA. This work was also granted access to the HPC resources of IDRIS under the allocation 2024-AD011015314 made by GENCI.
-            
+            This work was supported by the European Research Council (ERC project DISCOVER, number 101076028) and by ANR project sharp ANR-23-PEIA-0008 in the context of the PEPR IA. This work was also granted access to the HPC resources of IDRIS under the allocation 2024-AD011015314 made by GENCI.<br>
             We would like to thank Ségolène Albouy, Raphaël Baena, Sonat Baltacı, Syrine Kalleli and Yannis Siglidis for their constructive manuscript feedback, as well as Gül Varol and Alexei Efros for sharing valuable insights.
           </p>
         </div>
