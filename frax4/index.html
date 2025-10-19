@@ -1,1 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <!-- Replace with your paper title and author names -->
+  <meta name="title" content="Segmenting France Across Four Centuries - Marta López-Rauhut, Hongyu Zhou, Mathieu Aubry, Loic Landrieu">
+  <!-- Write a compelling 150-160 character description of your research -->
+  <meta name="description" content="Historical maps offer an invaluable perspective into territory evolution across past centuries--long before satellite or remote sensing technologies existed. Deep learning methods have shown promising results in segmenting historical maps, but publicly available datasets typically focus on a single map type or period, require extensive and costly annotations, and are not suited for nationwide, long-term analyses. In this paper, we introduce a new dataset of historical maps tailored for analyzing large-scale, long-term land use and land cover evolution with limited annotations. Spanning metropolitan France (548,305 km^2), our dataset contains three map collections from the 18th, 19th, and 20th centuries. We provide both comprehensive modern labels and 22,878 km^2 of manually annotated historical labels for the 18th and 19th century maps. Our dataset illustrates the complexity of the segmentation task, featuring stylistic inconsistencies, interpretive ambiguities, and significant landscape changes (e.g., marshlands disappearing in favor of forests). We assess the difficulty of these challenges by benchmarking three approaches: a fully-supervised model trained with historical labels, and two weakly-supervised models that rely only on modern annotations. The latter either use the modern labels directly or first perform image-to-image translation to address the stylistic gap between historical and contemporary maps. Finally, we discuss how these methods can support long-term environment monitoring, offering insights into centuries of landscape transformation.">
+  <!-- Add 5-10 relevant keywords for your research area -->
+  <meta name="keywords" content="historical map segmentation, image-to-image translation, machine learning, computer vision, AI">
+  <!-- List all authors -->
+  <meta name="author" content="Marta López-Rauhut, Hongyu Zhou, Mathieu Aubry, Loic Landrieu">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
 
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="Segmenting France Across Four Centuries">
+  <meta name="citation_author" content="López-Rauhut, Marta">
+  <meta name="citation_author" content="Zhou, Hongyu">
+  <meta name="citation_author" content="Aubry, Mathieu">
+  <meta name="citation_author" content="Loic, Landrieu">
+  <meta name="citation_publication_date" content="2025-09-15">
+  <meta name="citation_conference_title" content="Document Analysis and Recognition – ICDAR 2025">
+  <meta name="citation_pdf_url" content="https://Archiel19.github.io/frax4/static/pdfs/FRAx4_arxiv.pdf">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- Replace with your paper title and authors -->
+  <title>Segmenting France Across Four Centuries - Marta López-Rauhut, Hongyu Zhou, Mathieu Aubry, Loic Landrieu | Academic Research</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/fift_france.png">
+  <link rel="apple-touch-icon" href="static/images/fift_france.png">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Segmenting France Across Four Centuries",
+    "description": "Historical maps offer an invaluable perspective into territory evolution across past centuries--long before satellite or remote sensing technologies existed. Deep learning methods have shown promising results in segmenting historical maps, but publicly available datasets typically focus on a single map type or period, require extensive and costly annotations, and are not suited for nationwide, long-term analyses. In this paper, we introduce a new dataset of historical maps tailored for analyzing large-scale, long-term land use and land cover evolution with limited annotations. Spanning metropolitan France (548,305 km^2), our dataset contains three map collections from the 18th, 19th, and 20th centuries. We provide both comprehensive modern labels and 22,878 km^2 of manually annotated historical labels for the 18th and 19th century maps. Our dataset illustrates the complexity of the segmentation task, featuring stylistic inconsistencies, interpretive ambiguities, and significant landscape changes (e.g., marshlands disappearing in favor of forests). We assess the difficulty of these challenges by benchmarking three approaches: a fully-supervised model trained with historical labels, and two weakly-supervised models that rely only on modern annotations. The latter either use the modern labels directly or first perform image-to-image translation to address the stylistic gap between historical and contemporary maps. Finally, we discuss how these methods can support long-term environment monitoring, offering insights into centuries of landscape transformation.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Marta López-Rauhut",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "LIGM, ENPC, IP Paris, Univ Gustave Eiffel, CNRS, France; Université Paris-Saclay, CNRS, LISN, France"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Hongyu Zhou",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "University of Bonn, Germany; Lamarr Institute, Germany"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Mathieu Aubry",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "LIGM, ENPC, IP Paris, Univ Gustave Eiffel, CNRS, France"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Loic Landrieu",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "LIGM, ENPC, IP Paris, Univ Gustave Eiffel, CNRS, France"
+        }
+      }
+    ],
+    "datePublished": "2025-09-15",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Document Analysis and Recognition – ICDAR 2025"
+    },
+    "url": "https://Archiel19.github.io/frax4",
+    "image": "https://Archiel19.github.io/frax4/static/images/fift_france.png",
+    "keywords": ["historical map segmentation", "image-to-image translation", "AI", "machine learning", "computer vision"],
+    "abstract": "Historical maps offer an invaluable perspective into territory evolution across past centuries--long before satellite or remote sensing technologies existed. Deep learning methods have shown promising results in segmenting historical maps, but publicly available datasets typically focus on a single map type or period, require extensive and costly annotations, and are not suited for nationwide, long-term analyses. In this paper, we introduce a new dataset of historical maps tailored for analyzing large-scale, long-term land use and land cover evolution with limited annotations. Spanning metropolitan France (548,305 km^2), our dataset contains three map collections from the 18th, 19th, and 20th centuries. We provide both comprehensive modern labels and 22,878 km^2 of manually annotated historical labels for the 18th and 19th century maps. Our dataset illustrates the complexity of the segmentation task, featuring stylistic inconsistencies, interpretive ambiguities, and significant landscape changes (e.g., marshlands disappearing in favor of forests). We assess the difficulty of these challenges by benchmarking three approaches: a fully-supervised model trained with historical labels, and two weakly-supervised models that rely only on modern annotations. The latter either use the modern labels directly or first perform image-to-image translation to address the stylistic gap between historical and contemporary maps. Finally, we discuss how these methods can support long-term environment monitoring, offering insights into centuries of landscape transformation.",
+    "citation": "@inproceedings{lopez2025segmenting,
+      title={Segmenting France Across Four Centuries},
+      author={L{\'o}pez-Rauhut, Marta and Zhou, Hongyu and Aubry, Mathieu and Landrieu, Loic},
+      booktitle={International Conference on Document Analysis and Recognition},
+      pages={3--22},
+      year={2025},
+      organization={Springer}
+    }",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://Archiel19.github.io/frax4"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "historical map segmentation"
+      },
+      {
+        "@type": "Thing", 
+        "name": "geographical change detection"
+      },
+      {
+        "@type": "Thing", 
+        "name": "computer vision"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Imagine - École Nationale des Ponts et Chaussées",
+    "url": "https://imagine-lab.enpc.fr",
+    "logo": "https://Archiel19.github.io/frax4/static/images/fift_france.png",
+    "sameAs": [
+      "https://github.com/Archiel19"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- Replace with your paper title -->
+            <h1 class="title is-1 publication-title">Segmenting France Across Four Centuries</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Replace with your paper authors and their personal links -->
+              <span class="author-block">
+                Marta López-Rauhut,</span>
+                <span class="author-block">
+                  Hongyu Zhou,</span>
+                  <span class="author-block">
+                    <a href="https://mathieuaubry.github.io" target="_blank">Mathieu Aubry</a>,</span>
+                  <span class="author-block">
+                    <a href="https://loiclandrieu.com" target="_blank">Loic Landrieu</a></span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <!-- Replace with your institution and conference/journal info -->
+                    <span class="author-block">École Nationale des Ponts et Chaussées<br>Document Analysis and Recognition – ICDAR 2025</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Update with your arXiv paper ID -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2505.24824" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- Replace with your GitHub repository URL -->
+                  <span class="link-block">
+                    <a href="https://github.com/Archiel19/FRAx4" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- Update with your arXiv paper ID -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2505.24824" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- Replace with your paper abstract -->
+          <p>
+            Historical maps offer an invaluable perspective into territory evolution across past centuries--long before satellite or remote sensing technologies existed. Deep learning methods have shown promising results in segmenting historical maps, but publicly available datasets typically focus on a single map type or period, require extensive and costly annotations, and are not suited for nationwide, long-term analyses. In this paper, we introduce a new dataset of historical maps tailored for analyzing large-scale, long-term land use and land cover evolution with limited annotations. Spanning metropolitan France (548,305 km^2), our dataset contains three map collections from the 18th, 19th, and 20th centuries. We provide both comprehensive modern labels and 22,878 km^2 of manually annotated historical labels for the 18th and 19th century maps. Our dataset illustrates the complexity of the segmentation task, featuring stylistic inconsistencies, interpretive ambiguities, and significant landscape changes (e.g., marshlands disappearing in favor of forests). We assess the difficulty of these challenges by benchmarking three approaches: a fully-supervised model trained with historical labels, and two weakly-supervised models that rely only on modern annotations. The latter either use the modern labels directly or first perform image-to-image translation to address the stylistic gap between historical and contemporary maps. Finally, we discuss how these methods can support long-term environment monitoring, offering insights into centuries of landscape transformation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Replace with your research result images -->
+        <img src="static/images/teaser.png" alt="Historical map segmentation" loading="lazy"/>
+        <!-- Replace with description of this result -->
+        <h2 class="subtitle has-text-centered">
+          Semantic segmentation of historical maps of France spanning four centuries.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/baselineA.png" alt="Baseline A" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Baseline A - Fully-supervised segmentation.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/baselineB.png" alt="Baseline B" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+         Baseline B - Direct weakly-supervised segmentation.
+       </h2>
+     </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/baselineC.png" alt="Baseline C" loading="lazy"/>
+      <h2 class="subtitle has-text-centered">
+        Baseline C - Translation + segmentation.
+      </h2>
+    </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/qualitative_results.png" alt="Qualitative semantic segmentation results" loading="lazy"/>
+      <h2 class="subtitle has-text-centered">
+        Qualitative semantic segmentation results.
+      </h2>
+    </div>
+    <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/forest_prediction.png" alt="Forest cover prediction" loading="lazy"/>
+      <h2 class="subtitle has-text-centered">
+        Predicted forest cover over France across four centuries.
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<!-- Paper poster -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Slides</h2>
+      <!-- Replace with your poster PDF -->
+      <iframe  src="static/pdfs/ICDAR 2025_FRAx4.pdf" width="100%" height="550">
+          </iframe>
+      </div>
+    </div>
+  </section>
+<!--End paper poster -->
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{lopez2025segmenting,
+  title={Segmenting France Across Four Centuries},
+  author={L{\'o}pez-Rauhut, Marta and Zhou, Hongyu and Aubry, Mathieu and Landrieu, Loic},
+  booktitle={International Conference on Document Analysis and Recognition},
+  pages={3--22},
+  year={2025},
+  organization={Springer}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+<!-- Acknowledgments -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Acknowledgments</h2>
+        <div class="content has-text-justified">
+          <p>
+            This work was supported by the European Research Council (ERC project DISCOVER, number 101076028) and by ANR project sharp ANR-23-PEIA-0008 in the context of the PEPR IA. This work was also granted access to the HPC resources of IDRIS under the allocation 2024-AD011015314 made by GENCI.
+            
+            We would like to thank Ségolène Albouy, Raphaël Baena, Sonat Baltacı, Syrine Kalleli and Yannis Siglidis for their constructive manuscript feedback, as well as Gül Varol and Alexei Efros for sharing valuable insights.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End acknowledgments -->
+    
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
