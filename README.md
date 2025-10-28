@@ -6,4 +6,4 @@ Currently researching the environmental footprint of AI.
 
 ## Publications
 
-[Segmenting France Across Four Centuries](https://imagine.enpc.fr/~marta.lopez-rauhut/frax4/) - ICDAR 2025 (**Oral**)
+[Segmenting France Across Four Centuries](https://imagine.enpc.fr/~marta.lopez-rauhut/segmenting-france/) - ICDAR 2025 (**Oral**)
